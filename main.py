@@ -3,6 +3,9 @@ import pickle
 import pandas as pd
 import streamlit as st
 import requests
+import bz2
+import pickle
+import _pickle as cPickle
 
 def fetch_poster(mv_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=c2665c794d9e9995cae79259213f9852&language=en-US'.format(mv_id))
@@ -58,8 +61,14 @@ movie_dict = pickle.load(open('movies_dict.pkl','rb'))
 movies = pd.DataFrame(movie_dict)
 
 
+def decompress_pickle(file):
+ data = bz2.BZ2File(file, 'rb')
+ data = cPickle.load(data)
+ return data
 
-similarity = pickle.load(open('similarity.pkl','rb'))
+#similarity = pickle.load(open('similarity.pkl','rb'))
+similarity = decompress_pickle('Similarity.pbz2')
+#similarity = pickle.load(open('similarity.pkl','rb'))
 
 st.title('Movie Recommender')
 
