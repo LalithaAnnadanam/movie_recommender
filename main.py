@@ -70,7 +70,7 @@ def decompress_pickle(file):
 similarity = decompress_pickle('Similarity.pbz2')
 #similarity = pickle.load(open('similarity.pkl','rb'))
 
-st.set_page_config(page_title = "Watchwhatz")
+#st.set_page_config(page_title = "Watchwhatz")
 st.title('Movie Recommender')
 
 userId = st.number_input('User Id', min_value=None, max_value=None, value=0, step=1)
