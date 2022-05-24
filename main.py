@@ -36,7 +36,7 @@ def recommend_for(userId, title):
     # content based
     sim_scores = list(enumerate(similarity[int(index)]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    sim_scores = sim_scores[1:100]
+    sim_scores = sim_scores[11:100]
     movie_indices = [i[0] for i in sim_scores]
 
     mv = movies.iloc[movie_indices][['title', 'vote_count', 'vote_average', 'id']]
