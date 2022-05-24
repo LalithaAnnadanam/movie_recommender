@@ -73,13 +73,13 @@ similarity = decompress_pickle('Similarity.pbz2')
 #st.set_page_config(page_title = "Watchwhatz")
 st.title('Movie Recommender')
 
-userId = st.number_input('User Id', min_value=None, max_value=None, value=0, step=1)
+#userId = st.number_input('User Id', min_value=None, max_value=None, value=0, step=1)
 
 selected_movie_name = st.selectbox(
      'Search',
      movies['title'].values)
 
-
+userId= st.sidebar.number_input('User Id', min_value=None, max_value=None, value=0, step=1)
 
 if st.button('Recommend'):
 
