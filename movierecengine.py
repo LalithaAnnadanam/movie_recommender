@@ -134,7 +134,7 @@ count_matrix = count.fit_transform(movies['soup'])
 from sklearn.metrics.pairwise import cosine_similarity
 cosin_sim2 = cosine_similarity(count_matrix, count_matrix)
 
-cosin_sim2[7]
+#cosin_sim2[7]
 
 def get_recommendations(title, cosin_sim=cosin_sim):
     idx = index_of_movies[title]
@@ -157,9 +157,9 @@ def recommend(movie):
   for i in movies_list:
     print(movies.iloc[i[0]].title)
 
-recommend('The Avengers')
+#recommend('The Avengers')
 
-recommend('Titanic')
+#recommend('Titanic')
 
 get_recommendations('The Avengers',cosin_sim2).head(10)
 
@@ -236,9 +236,9 @@ def recommend_for(userId, title):
     mv = mv.sort_values('est', ascending=False)
     return mv.head(10)
 
-recommend_for(624,'Avatar')
 
-recommend_for(4,'Titanic')
+
+#recommend_for(4,'Titanic')
 
 import pickle
 
